@@ -21,4 +21,37 @@
 2. 중간 연산자 : 필터링,맵 등 원하는 결과를 만들어가는 과정
 3. 결과 만들기 : 컬렉션으로 만든다거나 원하는 결과로 만들기
 
+---
 
+# 스트림 생성
+
+1. 배열 스트림
+
+```java
+Arrays.class
+
+public static <T> Stream<T> stream(T[] array, int startInclusive, int endExclusive) {
+    return StreamSupport.stream(spliterator(array, startInclusive, endExclusive), false);
+    }
+
+    /***
+     * Arrays.class 안에는 stream 을 생성하는 메서드가 정의되어 있다.
+     */
+ Stream<String> stream1 = Arrays.stream("a","b");
+```
+
+
+2. 컬렉션 스트림
+```java
+Collection.java
+default Stream<E> stream() {
+    return StreamSupport.stream(spliterator(), false);
+    }
+    /**
+     * 컬렉션 또한 마찬가지다
+     * **/
+    List<String> list = Arrays.asList("1","2");
+    Stream<String> stream1 = Arrays.stream(list);
+    
+```
+3. 
