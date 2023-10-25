@@ -42,7 +42,6 @@ public class Member {
         }
 
         public Member build() {
-            // 필요한 경우, 여기서 객체의 유효성 검사를 수행할 수 있습니다.
             return new Member(this);
         }
 
