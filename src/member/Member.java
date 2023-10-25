@@ -10,6 +10,9 @@ public class Member {
         this.name = builder.name;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Long getId() {
         return id;
     }

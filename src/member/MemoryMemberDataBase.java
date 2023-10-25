@@ -3,7 +3,6 @@ package member;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class MemoryMemberDataBase {
@@ -38,15 +37,12 @@ public class MemoryMemberDataBase {
         return memberStore.size();
     }
 
-    public Optional<Member> saveMember(Member member) {
-        System.out.println("DB : 회원 저장 요청");
+    public Member saveMember(Member member) {
+        System.out.println("DB : 회원 저장 중...");
         Long memberId = sequenceId.incrementAndGet();
-        Member savedMember = Member.builder()
-            .id(memberId)
-            .name(member.getName())
-            .build();
+        member.setId(memberId); // Member 객체에 ID 설정
         memberStore.put(memberId, member);
-        return Optional.ofNullable(savedMember);
+        return member; // 저장된 회원 반환
     }
 
     public Optional<Member> findMemberById(Long id) {
