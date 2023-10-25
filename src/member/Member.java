@@ -6,7 +6,6 @@ public class Member {
     private String name;
 
     private Member(Builder builder) {
-        this.id = builder.id;
         this.name = builder.name;
     }
 
@@ -31,13 +30,7 @@ public class Member {
 
     // builder pattern
     public static class Builder{
-        private Long id;
         private String name;
-
-        public Builder id(Long id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder name(String name) {
             this.name = name;
