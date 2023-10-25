@@ -25,6 +25,9 @@ public class MemberService {
         return memberDataBase.findMembersByName(name);
     }
 
+    public List<Member> findMembersByContainingName(String name) {
+        return memberDataBase.findMembersByContainingName(name);
+    }
 
 
 }

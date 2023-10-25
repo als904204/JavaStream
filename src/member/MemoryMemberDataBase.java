@@ -65,5 +65,12 @@ public class MemoryMemberDataBase {
             .toList();
     }
 
+    public List<Member> findMembersByContainingName
+        (String name) {
+        return memberStore.values().stream()
+            .filter(m -> m.getName().contains(name))
+            .toList();
+    }
+
 
 }
