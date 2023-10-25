@@ -1,5 +1,8 @@
 package member;
 
+import java.util.List;
+import member.utils.PrintUtil;
+
 public class MemberMain {
 
     public static void main(String[] args) {
@@ -16,6 +19,11 @@ public class MemberMain {
         Member findMember = memberService.findById(member.getId());
 
         System.out.println("findMember = " + findMember);
+        PrintUtil.printLine();
+
+        List<Member> member1 = memberService.findMembersByName("member1");
+        System.out.println("member1 = " + member1);
+
     }
 
 }

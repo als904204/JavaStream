@@ -1,5 +1,10 @@
 package member;
 
+/**
+ * MemberDB.class
+ * MemberService.class
+ * 의존 주입 클래스
+ */
 public class MemberAssembly {
 
 
