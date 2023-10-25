@@ -1,5 +1,7 @@
 package member;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,14 +42,27 @@ public class MemoryMemberDataBase {
     public Member saveMember(Member member) {
         System.out.println("DB : 회원 저장 중...");
         Long memberId = sequenceId.incrementAndGet();
-        member.setId(memberId); // Member 객체에 ID 설정
+        member.setId(memberId);
         memberStore.put(memberId, member);
-        return member; // 저장된 회원 반환
+        return member;
     }
 
     public Optional<Member> findMemberById(Long id) {
         System.out.println("DB : ID 로 회원 찾기");
         return Optional.ofNullable(memberStore.get(id));
+    }
+
+    public List<Member> findAllMembers() {
+        System.out.println("DB : 모든 회원 조회");
+        return new ArrayList<>(memberStore.values());
+    }
+
+    // 스트림을 사용한 회원 조회
+    public List<Member> findMembersByName(String name) {
+        System.out.println("DB : ("+name+") 모든 이름 조회");
+        return memberStore.values().stream()
+            .filter(m -> m.getName().equals(name))
+            .toList();
     }
 
 

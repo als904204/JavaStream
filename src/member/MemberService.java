@@ -1,5 +1,7 @@
 package member;
 
+import java.util.List;
+
 public class MemberService {
 
     private final MemoryMemberDataBase memberDataBase;
@@ -17,6 +19,10 @@ public class MemberService {
 
     public Member findById(Long id) {
         return memberDataBase.findMemberById(id).orElseThrow(()-> new IllegalArgumentException("회원을 찾을 수 없습니다"));
+    }
+
+    public List<Member> findMembersByName(String name) {
+        return memberDataBase.findMembersByName(name);
     }
 
 
