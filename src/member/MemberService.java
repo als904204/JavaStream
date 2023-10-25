@@ -29,5 +29,9 @@ public class MemberService {
         return memberDataBase.findMembersByContainingName(name);
     }
 
+    public List<Member> saveAllMembers(List<Member> members) {
+        return memberDataBase.saveAllMembers(members);
+    }
+
 
 }

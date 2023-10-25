@@ -47,6 +47,16 @@ public class MemoryMemberDataBase {
         return member;
     }
 
+    public List<Member> saveAllMembers(List<Member> members) {
+        System.out.println("DB : 여러 회원 저장 중...");
+        for (Member member : members) {
+            Long memberId = sequenceId.incrementAndGet();
+            member.setId(memberId);
+            memberStore.put(memberId, member);
+        }
+        return members;
+    }
+
     public Optional<Member> findMemberById(Long id) {
         System.out.println("DB : ID 로 회원 찾기");
         return Optional.ofNullable(memberStore.get(id));
@@ -56,6 +66,7 @@ public class MemoryMemberDataBase {
         System.out.println("DB : 모든 회원 조회");
         return new ArrayList<>(memberStore.values());
     }
+
 
     // 스트림을 사용한 회원 조회
     public List<Member> findMembersByName(String name) {
