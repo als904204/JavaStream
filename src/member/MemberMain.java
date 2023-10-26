@@ -47,6 +47,10 @@ public class MemberMain {
 
         int memberDataBaseSize = memberService.getMemberDataBaseSize();
         System.out.println("memberDataBaseSize = " + memberDataBaseSize);
+        PrintUtil.printLine();
+
+        memberService.deleteMember(101L);
+
     }
 
 }

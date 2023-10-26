@@ -47,6 +47,14 @@ public class MemoryMemberDataBase {
         return member;
     }
 
+    public void deleteMember(Long id) {
+        System.out.println("DB : ID 로 회원 삭제 실행");
+        findMemberById(id).orElseThrow(()-> new IllegalArgumentException("존재하지 않는 회원 입니다"));
+        memberStore.remove(id);
+        System.out.println(id+" 회원 삭제 성공");
+
+    }
+
     public List<Member> saveAllMembers(List<Member> members) {
         System.out.println("DB : 여러 회원 저장 중...");
         for (Member member : members) {
@@ -82,6 +90,8 @@ public class MemoryMemberDataBase {
             .filter(m -> m.getName().contains(name))
             .toList();
     }
+
+
 
 
 }
