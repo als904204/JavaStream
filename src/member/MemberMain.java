@@ -4,7 +4,6 @@ import static member.utils.PrintUtil.printLine;
 
 import java.util.ArrayList;
 import java.util.List;
-import member.utils.PrintUtil;
 
 public class MemberMain {
 
@@ -64,6 +63,9 @@ public class MemberMain {
         List<Member> allMembers = memberService.findAllMembers();
         System.out.println("allMembers = " + allMembers);
         printLine();
+
+        List<Member> membersOlderThan = memberService.findMemberYoungerThan(10);
+        System.out.println("membersOlderThan = " + membersOlderThan);
 
 
     }

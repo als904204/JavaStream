@@ -47,4 +47,8 @@ public class MemberService {
     public long countMemberByNameNonStream(String name) {
         return memberDataBase.countMembersWithSpecificNameNonStream(name);
     }
+
+    public List<Member> findMemberYoungerThan(int age) {
+        return memberDataBase.findMemberYoungerThan(age);
+    }
 }

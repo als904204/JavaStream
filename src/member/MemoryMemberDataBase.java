@@ -110,6 +110,13 @@ public class MemoryMemberDataBase {
         return count;
     }
 
+    // age 보다 낮은 회원 목록 조회
+    public List<Member> findMemberYoungerThan(int age) {
+        System.out.println("DB : " + age +" 보다 나이가 낮은 회원 조회");
+        return memberStore.values().stream()
+            .filter(m -> m.getAge()< age)
+            .toList();
+    }
 
 
 
