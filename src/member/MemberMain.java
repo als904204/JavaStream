@@ -78,6 +78,8 @@ public class MemberMain {
 
         List<Member> membersByLimit = memberService.getMembersByLimit(5);
         System.out.println("membersByLimit = " + membersByLimit);
+
+
     }
 
 }

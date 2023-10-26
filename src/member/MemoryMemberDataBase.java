@@ -144,4 +144,12 @@ public class MemoryMemberDataBase {
             .toList();
     }
 
+
+    // 중복된 이름을 제거한 회원 이름 리스트
+    public List<String> getDistinctMemberNames() {
+        return memberStore.values().stream()
+            .map(Member::getName) // .map(m->m.getName())
+            .distinct()
+            .toList();
+    }
 }
