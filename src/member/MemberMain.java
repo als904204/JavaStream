@@ -23,6 +23,7 @@ public class MemberMain {
         for (int i = 0; i < 100; i++) {
             memberList.add(Member.builder()
                 .name("member:" + i)
+                .age(i)
                 .build());
         }
 
@@ -56,8 +57,12 @@ public class MemberMain {
 
         long countMemberByNameStream = memberService.countMemberByName("member1");
         System.out.println("countMemberByNameStream = " + countMemberByNameStream);
-        long countMemberByNameNonStream = memberService.countMemberByName("member1");
+        long countMemberByNameNonStream = memberService.countMemberByNameNonStream("member1");
         System.out.println("countMemberByName = " + countMemberByNameNonStream);
+        printLine();
+
+        List<Member> allMembers = memberService.findAllMembers();
+        System.out.println("allMembers = " + allMembers);
         printLine();
 
 

@@ -33,6 +33,9 @@ public class MemberService {
         return memberDataBase.saveAllMembers(members);
     }
 
+    public List<Member> findAllMembers() {
+        return memberDataBase.findAllMembers();
+    }
     public void deleteMember(Long id) {
         memberDataBase.deleteMember(id);
     }
