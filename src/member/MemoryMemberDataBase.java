@@ -84,11 +84,30 @@ public class MemoryMemberDataBase {
             .toList();
     }
 
+    // name 을 포함한 회원 Stream 조회
     public List<Member> findMembersByContainingName
         (String name) {
         return memberStore.values().stream()
             .filter(m -> m.getName().contains(name))
             .toList();
+    }
+
+    // 해당 이름을 가진 회원 수 조회
+    public long countMembersWithSpecificName(String name) {
+        return memberStore.values().stream()
+            .filter(m -> m.getName().equals(name))
+            .count();
+    }
+
+    // 스트림을 사용하지 않고 해당 이름을 가진 회원 수 조회
+    public long countMembersWithSpecificNameNonStream(String name) {
+        long count = 0;
+        for (Member member : memberStore.values()) {
+            if (member.getName().equals(name)) {
+                count++;
+            }
+        }
+        return count;
     }
 
 

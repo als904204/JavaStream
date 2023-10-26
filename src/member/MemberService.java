@@ -37,5 +37,11 @@ public class MemberService {
         memberDataBase.deleteMember(id);
     }
 
+    public long countMemberByName(String name) {
+        return memberDataBase.countMembersWithSpecificName(name);
+    }
 
+    public long countMemberByNameNonStream(String name) {
+        return memberDataBase.countMembersWithSpecificNameNonStream(name);
+    }
 }

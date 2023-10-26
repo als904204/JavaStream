@@ -1,5 +1,7 @@
 package member;
 
+import static member.utils.PrintUtil.printLine;
+
 import java.util.ArrayList;
 import java.util.List;
 import member.utils.PrintUtil;
@@ -30,26 +32,34 @@ public class MemberMain {
         Member findMember = memberService.findById(member.getId());
 
         System.out.println("findMember = " + findMember);
-        PrintUtil.printLine();
+        printLine();
 
         List<Member> member1 = memberService.findMembersByName("member1");
         System.out.println("member1 = " + member1);
-        PrintUtil.printLine();
+        printLine();
 
         List<Member> containingMember = memberService.findMembersByContainingName("member");
 
         System.out.println("containingMember = " + containingMember);
-        PrintUtil.printLine();
+        printLine();
 
 
         memberService.saveAllMembers(memberList);
-        PrintUtil.printLine();
+        printLine();
 
         int memberDataBaseSize = memberService.getMemberDataBaseSize();
         System.out.println("memberDataBaseSize = " + memberDataBaseSize);
-        PrintUtil.printLine();
+        printLine();
 
         memberService.deleteMember(101L);
+        printLine();
+
+        long countMemberByNameStream = memberService.countMemberByName("member1");
+        System.out.println("countMemberByNameStream = " + countMemberByNameStream);
+        long countMemberByNameNonStream = memberService.countMemberByName("member1");
+        System.out.println("countMemberByName = " + countMemberByNameNonStream);
+        printLine();
+
 
     }
 
