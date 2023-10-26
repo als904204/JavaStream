@@ -59,4 +59,8 @@ public class MemberService {
     public List<String> getMemberNamesToUpperCased() {
         return memberDataBase.getMemberNamesToUpperCased();
     }
+
+    public List<Member> getMembersByLimit(int limit) {
+        return memberDataBase.getMembersByLimit(limit);
+    }
 }

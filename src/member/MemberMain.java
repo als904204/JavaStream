@@ -74,7 +74,10 @@ public class MemberMain {
 
         List<String> memberNamesToUpperCased = memberService.getMemberNamesToUpperCased();
         System.out.println("memberNamesToUpperCased = " + memberNamesToUpperCased);
+        printLine();
 
+        List<Member> membersByLimit = memberService.getMembersByLimit(5);
+        System.out.println("membersByLimit = " + membersByLimit);
     }
 
 }

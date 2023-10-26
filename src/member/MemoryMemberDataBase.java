@@ -130,8 +130,18 @@ public class MemoryMemberDataBase {
 
     // stream Map 을 이용하여 형 변환 후 리턴
     public List<String> getMemberNamesToUpperCased() {
+        System.out.println("DB : 모든 회원의 이름을 대문자로 변경하여 조회");
         return memberStore.values().stream()
             .map(m -> m.getName().toUpperCase())
             .toList();
     }
+
+    // limit 만큼만 회원 조회
+    public List<Member> getMembersByLimit(int limit) {
+        System.out.println("DB : "+ limit+" 만큼만 회원 조회");
+        return memberStore.values().stream()
+            .limit(limit)
+            .toList();
+    }
+
 }
