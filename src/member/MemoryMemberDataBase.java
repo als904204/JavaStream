@@ -118,6 +118,20 @@ public class MemoryMemberDataBase {
             .toList();
     }
 
+    // fromAge 부터 toAge 의 회원 조회
+    public List<Member> findMemberBetweenByAge(int fromAge, int toAge) {
+        System.out.println("DB : " + fromAge + "," + toAge+ "사이 나이 회원 조회");
+
+        return memberStore.values().stream()
+            .filter(m -> m.getAge() > fromAge && m.getAge() < toAge)
+            .toList();
+    }
 
 
+    // stream Map 을 이용하여 형 변환 후 리턴
+    public List<String> getMemberNamesToUpperCased() {
+        return memberStore.values().stream()
+            .map(m -> m.getName().toUpperCase())
+            .toList();
+    }
 }

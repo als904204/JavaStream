@@ -51,4 +51,12 @@ public class MemberService {
     public List<Member> findMemberYoungerThan(int age) {
         return memberDataBase.findMemberYoungerThan(age);
     }
+
+    public List<Member> findMemberBetweenByAge(int fromAge, int toAge) {
+        return memberDataBase.findMemberBetweenByAge(fromAge, toAge);
+    }
+
+    public List<String> getMemberNamesToUpperCased() {
+        return memberDataBase.getMemberNamesToUpperCased();
+    }
 }

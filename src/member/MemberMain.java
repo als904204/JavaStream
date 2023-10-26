@@ -66,7 +66,14 @@ public class MemberMain {
 
         List<Member> membersOlderThan = memberService.findMemberYoungerThan(10);
         System.out.println("membersOlderThan = " + membersOlderThan);
+        printLine();
 
+        List<Member> memberBetweenByAge = memberService.findMemberBetweenByAge(10, 20);
+        System.out.println("memberBetweenByAge = " + memberBetweenByAge);
+        printLine();
+
+        List<String> memberNamesToUpperCased = memberService.getMemberNamesToUpperCased();
+        System.out.println("memberNamesToUpperCased = " + memberNamesToUpperCased);
 
     }
 
