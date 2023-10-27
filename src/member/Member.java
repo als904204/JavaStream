@@ -8,8 +8,10 @@ public class Member {
     private int age;
 
     private Member(Builder builder) {
+        this.id = builder.id;
         this.name = builder.name;
         this.age = builder.age;
+
     }
 
     public void setId(Long id) {
@@ -42,6 +44,8 @@ public class Member {
         private String name;
         private int age;
 
+        private Long id;
+
         public Builder name(String name) {
             this.name = name;
             return this;
@@ -51,6 +55,12 @@ public class Member {
             this.age = age;
             return this;
         }
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
 
         public Member build() {
             return new Member(this);
